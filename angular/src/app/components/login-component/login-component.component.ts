@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {WebRequestService} from "../../services/web-request.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-component',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponentComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+  password: string;
+  message: any;
+
+  constructor(
+    private webRequest: WebRequestService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  doLogin() {
+    const response = this.webRequest.login(this.username, this.password);
+    response.subscribe(data => {
+      this.message = data;
+      this.router.navigate(['/home'])
+      alert("Login Sukses! halo " + this.username + "!");
+    });
   }
 
 }

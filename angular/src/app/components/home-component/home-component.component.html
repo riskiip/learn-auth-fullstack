@@ -1,1 +1,24 @@
-<p>home-component works!</p>
+<div class="content-container">
+  <button class="button is-info" (click)="getUsers()">Get Users</button>
+
+  <table class="table is-hovered" *ngIf="isClicked">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile Phone</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobile}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

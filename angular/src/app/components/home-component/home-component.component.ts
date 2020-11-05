@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WebRequestService} from "../../services/web-request.service";
 
 @Component({
   selector: 'app-home-component',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-component.component.scss']
 })
 export class HomeComponentComponent implements OnInit {
+  users: any;
+  isClicked = false;
 
-  constructor() { }
+  constructor(private webRequest: WebRequestService) {
+  }
 
   ngOnInit() {
+  }
+
+  getUsers() {
+    this.isClicked = !this.isClicked;
+    const response = this.webRequest.getUsers();
+    response.subscribe(data => {
+      this.users = data
+    })
   }
 
 }

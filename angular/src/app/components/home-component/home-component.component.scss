@@ -1,0 +1,13 @@
+.content-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  table {
+    margin-top: 20px;
+  }
+}

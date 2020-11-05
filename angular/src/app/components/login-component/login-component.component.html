@@ -1,1 +1,32 @@
-<p>login-component works!</p>
+<div class="form-container">
+  <div class="modal-box">
+    <h1 class="title">Login</h1>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Username" [(ngModel)]="username">
+        <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="password" placeholder="Password" [(ngModel)]="password">
+        <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control">
+        <button class="button is-success" (click)="doLogin()">
+          Login
+        </button>
+      </p>
+    </div>
+
+  </div>
+</div>
+
